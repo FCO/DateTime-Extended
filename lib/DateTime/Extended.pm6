@@ -50,7 +50,7 @@ role DateTime::Extended {
 		($target.month - $.month) + (12 * ($.years-until($target)))
 	}
 
-	method next-riopm-es {
+	method next-riopm-social {
 		my $first = self.new: :2017year:1month:13day    :18hour:0minute:0second;
 		$first does DateTime::Extended;
 		my $m = $first.months-until(self) + 3;

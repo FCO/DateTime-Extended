@@ -23,10 +23,10 @@ is $now.months-until(DateTime.new: :2017year:5month:21day), 4;
 is $now.months-until(DateTime.new: :2020year:5month:21day), 40;
 is $now.months-until(DateTime.new: :2000year:5month:21day), -200;
 
-is $now.next-riopm-es, $now;
-is $now.later(:1day).next-riopm-es,									DateTime.new: :2017year:2month:10day    :18hour:0minute:0second;
-is $now.later(:1day).next-riopm-es.later(:1second).next-riopm-es,	DateTime.new: :2017year:3month:13day    :18hour:0minute:0second;
-is $now.later(:1month).next-riopm-es,								DateTime.new: :2017year:3month:13day    :18hour:0minute:0second;
+is $now.next-riopm-social, $now;
+is $now.later(:1day).next-riopm-social,										DateTime.new: :2017year:2month:10day    :18hour:0minute:0second;
+is $now.later(:1day).next-riopm-social.later(:1second).next-riopm-social,	DateTime.new: :2017year:3month:13day    :18hour:0minute:0second;
+is $now.later(:1month).next-riopm-social,									DateTime.new: :2017year:3month:13day    :18hour:0minute:0second;
 
 my $today = Date.new: :2017year:1month:12day;
 $today does DateTime::Extended;
@@ -49,8 +49,8 @@ is $today.months-until(Date.new: :2017year:5month:21day), 4;
 is $today.months-until(Date.new: :2020year:5month:21day), 40;
 is $today.months-until(Date.new: :2000year:5month:21day), -200;
 
-is $today.next-riopm-es, $today;
-is $today.later(:1day).next-riopm-es,								Date.new: :2017year:2month:10day;
-is $today.later(:1day).next-riopm-es.later(:1day).next-riopm-es,	Date.new: :2017year:3month:13day;
-is $today.later(:1month).next-riopm-es,								Date.new: :2017year:3month:13day;
+is $today.next-riopm-social, $today;
+is $today.later(:1day).next-riopm-social,									Date.new: :2017year:2month:10day;
+is $today.later(:1day).next-riopm-social.later(:1day).next-riopm-social,	Date.new: :2017year:3month:13day;
+is $today.later(:1month).next-riopm-social,									Date.new: :2017year:3month:13day;
 
