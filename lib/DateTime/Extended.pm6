@@ -14,6 +14,7 @@ role DateTime::Extended {
 	method year		{...}
 	method month	{...}
 	method day		{...}
+
 	method day-of-week {
 		DayOfTheWeek(callsame)
 	}
@@ -50,7 +51,15 @@ role DateTime::Extended {
 		($target.month - $.month) + (12 * ($.years-until($target)))
 	}
 
-	method next-riopm-social {
+	multi method next-riopm-social(Date:U:) {
+		date-extended.today.next-riopm-social
+	}
+
+	multi method next-riopm-social(DateTime:U:) {
+		datetime-extended.now.next-riopm-social
+	}
+
+	multi method next-riopm-social(Mu:D:) {
 		my $first = self.new: :2017year:1month:13day    :18hour:0minute:0second;
 		$first does DateTime::Extended;
 		my $m = $first.months-until(self) + 3;
@@ -63,4 +72,12 @@ role DateTime::Extended {
 		return $es if $es >= self;
 		$fd.later(:1month).next-day-of-week(($m % 5) + 1, :2times);
 	}
+}
+
+sub date-extended is export {
+	Date but DateTime::Extended
+}
+
+sub datetime-extended is export {
+	DateTime but DateTime::Extended
 }
