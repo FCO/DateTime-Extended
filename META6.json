@@ -12,5 +12,5 @@
         "Test",
         "Test::META"
     ],
-    "source-url" : "git@github.com:FCO/DateTime-Extended.git"
+    "source-url" : "https://github.com/FCO/DateTime-Extended.git"
 }
